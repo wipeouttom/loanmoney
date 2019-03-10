@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Money;
+use App\Loan;
 use Illuminate\Http\Request;
 
-class MoneyController extends Controller
+class LoanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +24,7 @@ class MoneyController extends Controller
      */
     public function create()
     {
-        //
+        return view('loan.create', []);
     }
 
     /**
@@ -35,7 +35,9 @@ class MoneyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Loan::create($request::all());
+
+        return view('thanks', []);
     }
 
     /**
